@@ -2,15 +2,18 @@
 
 ### Reading in tick data
 
+
 tick_disease_big <- read.csv("town_level_data_lyme.csv", header = TRUE, stringsAsFactors = FALSE)
 
 tick_disease_big <- read.csv("/town_level_data_lyme.csv", header = TRUE, stringsAsFactors = FALSE)
 sebago <- read.csv("/data_raw/Sebago_correction.csv", header = FALSE, stringsAsFactors = FALSE)
+
+tick_disease_big <- read.csv("/town_level_data_lyme.csv", header = TRUE, stringsAsFactors = FALSE)
+sebago <- read.csv("/data_raw/Sebago_correction.csv", header = FALSE, stringsAsFactors = FALSE)
+
 names(sebago) <- names(tick_disease_big)
 
 tick_disease_big <- rbind(tick_disease_big, sebago)
-
-
 
 tick_disease_big$Population <- gsub(pattern = ",", replacement = "", tick_disease_big$Population)
 
